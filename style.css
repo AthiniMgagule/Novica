@@ -1,0 +1,154 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header, nav, main, section, article, aside, footer {
+    padding: 1rem;
+}
+
+/* Header Styles */
+header {
+    background-color: #6a1b9a; /* Purple */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav a {
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section#home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+section#home p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+/* Features Section */
+section#features {
+    margin-top: 2rem;
+}
+
+section#features h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #6a1b9a; /* Purple */
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+article {
+    margin-bottom: 1.5rem;
+}
+
+article h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #6a1b9a; /* Purple */
+}
+
+article p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Call to Action */
+aside {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+aside h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #6a1b9a; /* Purple */
+}
+
+aside button {
+    background-color: #6a1b9a; /* Purple */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+aside button:hover {
+    background-color: #4a0072;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #6a1b9a; /* Purple */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer nav a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+footer address {
+    margin-top: 0.5rem;
+    font-style: normal;
+}
+
+/* Slogan Style */
+header::after {
+    content: "Dream. Write. Repeat.";
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #e1bee7; /* Light purple */
+    font-style: italic;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novica Editor</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="editor-container">
+        <h1>Novica Editor</h1>
+        <p>Dream. Write. Repeat.</p>
+        <div id="toolbar">
+            <select class="ql-color">
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="black" selected>black</option>
+            </select>
+            <select class="ql-background">
+                <option value="yellow">yellow</option>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="black" selected>black</option>
+            </select>
+        </div>
+        <div id="editor"></div>
+        <button id="save-btn" href = "dashboard.html">Save</button>
+    </div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

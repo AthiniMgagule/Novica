@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novica Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="side-nav">
+            <div class="side-nav-header">
+              <div class="sidebar-image">
+                <img src="novicalogo.png" alt="Sidebar Image" style="width:100px; height:100px ">
+            <!-- Create New Book Section -->
+            <div class="create-book-section">
+                <button id="create-book-button" class="create-book-button">+ Create New Book</button>
+                <div id="new-book-input" class="new-input-container" style="display: none;">
+                    <input type="text" id="new-book-name" class="new-name-input" placeholder="Enter..." style="width:100%;">
+                    <button id="submit-book-name">Submit</button>
+                </div>
+            </div>
+            
+            <!-- Book List -->
+            <ul id="book-list" class="book-list"></ul>
+            
+            <!-- Sign Out Link -->
+            <div class="sign-out">
+                <a href="index.html">Sign Out</a>
+            </div>
+
+            <!-- Input field for document creation -->
+            <div id="document-input" class="document-input-container" style="display: none;">
+                <input type="text" id="document-name" class="document-name-input" placeholder="Enter..." style="width:100%;">
+                <button id="submit-document-name">Submit</button>
+            </div>
+        </nav>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Main content goes here -->
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
