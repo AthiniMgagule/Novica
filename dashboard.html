@@ -5,13 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novica Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Profile Section -->
+    <div class="user-profile">
+        <img src="profile-icon.png" alt="Profile Icon" class="profile-icon" id="profile">
+    </div>
+
+    <!-- User Panel -->
+    <div id="user-panel" class="user-panel">
+        <div class="panel-content">
+            <!-- User Information Section -->
+            <div class="user-info-section">
+                <div class="profile-icon-container">
+                    <img src="profile-icon.png" alt="Profile Icon" class="profile-icon-large">
+                </div>
+                <div class="user-info">
+                    <p><span id="profile-name"></span></p>
+                    <p><span id="profile-email"></span></p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+            <div class="divider"></div>
+
+            <!-- Settings and Logout Section -->
+            <div class="user-settings">
+                <a href="#settings"><i class="fas fa-cogs"></i> Settings</a>
+                <a href="index.html" style="bottom : 0 ; position : fixed ;"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+        <span class="close-button" id="close-user-panel">&times;</span>
+    </div>
+
     <div class="dashboard-container">
-        <nav class="side-nav">
+        <nav class="side-nav" style="padding:2%;">
             <div class="side-nav-header">
-              <div class="sidebar-image">
-                <img src="novicalogo.png" alt="Sidebar Image" style="width:100px; height:100px ">
+                <div class="sidebar-image" style="padding : 0;">
+                    <img src="novicalogo.png" alt="Sidebar Image" style="width:100%; height:100px">
+                </div>
+            </div>
+            
             <!-- Create New Book Section -->
             <div class="create-book-section">
                 <button id="create-book-button" class="create-book-button">+ Create New Book</button>
@@ -20,27 +55,42 @@
                     <button id="submit-book-name">Submit</button>
                 </div>
             </div>
-            
-            <!-- Book List -->
-            <ul id="book-list" class="book-list"></ul>
-            
+
             <!-- Sign Out Link -->
             <div class="sign-out">
-                <a href="index.html">Sign Out</a>
-            </div>
-
-            <!-- Input field for document creation -->
-            <div id="document-input" class="document-input-container" style="display: none;">
-                <input type="text" id="document-name" class="document-name-input" placeholder="Enter..." style="width:100%;">
-                <button id="submit-document-name">Submit</button>
+                <a href="index.html">
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                </a>
             </div>
         </nav>
         
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Main content goes here -->
+            <div id="novels-container"></div>
         </main>
     </div>
+
+    <!-- Modal for Create Book -->
+    <div id="create-book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-create-book-modal">&times;</span>
+            <h2>Create New Book</h2>
+            <form id="create-book-form">
+                <label for="book-title">Title:</label>
+                <input type="text" id="book-title" name="title" required>
+
+                <label for="book-genre">Genre:</label>
+                <input type="text" id="book-genre" name="genre">
+
+                <label for="book-summary">Summary:</label>
+                <textarea id="book-summary" name="summary"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
     <script src="dashboard.js"></script>
 </body>
 </html>
+

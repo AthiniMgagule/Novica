@@ -2,6 +2,125 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
     margin: 0;
+    position: relative;
+    height:110vh;
+}
+
+.user-profile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.user-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 60%;
+    font-size: smaller;
+    background-color: rgb(211, 208, 208);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-panel.open {
+    transform: translateX(0);
+}
+
+.user-panel .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.user-info-section {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-icon-container {
+    margin-right: 20px;
+}
+
+.profile-icon-large {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+}
+
+.user-settings {
+    padding: 20px;
+}
+
+.user-settings a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.user-settings a:hover {
+    text-decoration: underline;
+}
+
+.user-info-section {
+    background-color: #361946;
+}
+
+.user-panel .user-info {
+    padding: 20px;
+}
+
+.user-panel .user-settings {
+    padding: 20px;
+}
+
+.user-panel .user-settings a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.user-panel .user-settings a:hover {
+    text-decoration: underline;
 }
 
 .dashboard-container {
@@ -9,13 +128,17 @@ body {
 }
 
 .side-nav {
-    width: 30%;
+    width: 20%;
     height: 100vh;
     background-color: #622186;
     color: white;
     padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0; /* Align side-nav to the left */
     display: flex;
     flex-direction: column;
+    /* z-index: 100; */
 }
 
 .side-nav-header {
@@ -27,7 +150,10 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.create-book-button {
+/* Button styles */
+.create-book-button,
+.create-character-button,
+.create-note-button {
     background-color: #43205e;
     color: white;
     border: none;
@@ -40,11 +166,14 @@ body {
     text-align: left;
 }
 
-.create-book-button:hover {
+.create-book-button:hover,
+.create-character-button:hover,
+.create-note-button:hover {
     background-color: #361946;
 }
 
-.book-list {
+.book-list,
+.document-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -66,18 +195,14 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.document-list {
-    margin-left: 1rem;
-    list-style-type: none;
-    padding: 0;
-}
-
 .document-item {
     margin-bottom: 0.5rem;
 }
 
 .sign-out {
-    margin-top: auto;
+    margin-bottom: 10px; /* Pushes the sign-out link to the bottom */
+    bottom: 0;
+    position: fixed;
 }
 
 .sign-out a {
@@ -86,6 +211,215 @@ body {
     font-weight: bold;
 }
 
-.sign-out a:hover {
-    text-decoration: underline;
+.sign-out i {
+    margin-right: 0.5rem; /* Space between icon and text */
 }
+
+.sign-out a:hover {
+    text-decoration: none;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input,
+form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.novel-card {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.novel-card h2 {
+    margin-top: 0;
+}
+
+.novel-card p {
+    margin: 0;
+    color: #333;
+}
+
+.start-writing-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.start-writing-button:hover {
+    background-color: #0056b3;
+}
+
+#novels-container{
+    padding-top: 50px ;
+}
+
+.main-content {
+    margin-left: 25%; /* Pushes content to the right of the side-nav */
+    padding: 20px;
+    width: 80%; /* Ensures main content takes up the rest of the space */
+    display: flex;
+    flex-direction: column;
+}
+
+#editor {
+    flex: 1; /* Take up the remaining space */
+    border: 1px solid #ddd;
+    padding: 20px;
+    height : 100%;
+}
+.editor-wrapper{
+    margin-top:5%;
+    height:90vh;
+}
+
+/* Styles the tabs container */
+.character-tabs {
+    display: flex;
+    cursor: pointer;
+    /* width: 70%; */
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Styles individual tabs */
+.character-tabs .tab {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: 5px;
+    background-color: #f1f1f1;
+}
+
+/* Styles the active tab */
+.character-tabs .tab.active {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+/* Styles the details container */
+.character-details-container {
+    position: fixed; /* Fixed position to overlay on top */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center alignment */
+    z-index: 1000; /* High z-index to ensure it appears on top */
+    background-color: white; /* Background color */
+    padding: 20px; /* Padding for the content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a modal effect */
+    display: none; /* Hidden by default */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Max width for larger screens */
+    max-height: 80%; /* Prevent overflow */
+    overflow-y: auto; /* Scroll if content exceeds container height */
+}
+
+.chapter-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 2%;
+}
+
+#editor-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#add-chapter-btn {
+    color: black;
+    border: 1px solid grey;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editor {
+    height: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+

@@ -66,15 +66,14 @@ async function login(){
     
             if (response.ok) {
                 const result = await response.text(); // Assume success message or use JSON if needed
+                console.log('api response: ' + result)
                 alert('Login successful!');
                 
                 // Save email and username in session storage
                 sessionStorage.setItem('email', email);
                 console.log('email: ' + email);
-    
+            
                 window.location.href = 'dashboard.html'; // Redirect to dashboard
-
-                
 
             } else {
                 const error = await response.text();
